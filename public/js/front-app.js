@@ -37539,7 +37539,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _app_AppComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app/AppComponent */ "./resources/js/app/AppComponent.vue");
+/* harmony import */ var _app_AppComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app/AppComponent.vue */ "./resources/js/app/AppComponent.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -37575,7 +37575,7 @@ window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 var app = new Vue({
   el: "#app",
   render: function render(h) {
-    return h(_app_AppComponent__WEBPACK_IMPORTED_MODULE_0__["default"]);
+    return h(_app_AppComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
   }
 });
 
