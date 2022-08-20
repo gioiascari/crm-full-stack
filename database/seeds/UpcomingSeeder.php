@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-use App\Upcomnig;
+use App\Upcoming;
 
 class UpcomingSeeder extends Seeder
 {
