@@ -1,15 +1,19 @@
 <template>
-    <div id="body"></div>
+    <div id="body">
+        <LeftComponent />
+        <RightBody />
+    </div>
 </template>
 
 <script>
 import LeftComponent from "./LeftComponent.vue";
-import RightComponent from "./RightComponent.vue";
+import RightBody from "./RightBody.vue";
+
 export default {
     name: "BodyComponent",
     components: {
         LeftComponent,
-        RightComponent,
+        RightBody,
     },
 };
 </script>
