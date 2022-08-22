@@ -1,6 +1,7 @@
 <template>
     <div id="right">
-        <h1>Development CRM</h1>
+        <h1 class="text-3xl font-bold underline">Development CRM</h1>
+
         <div class="horizontal">images horizontal</div>
 
         <p>
