@@ -10968,3 +10968,86 @@ a.text-dark:focus {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --primary1: #15172b;
+  --primary2: #262a41;
+  --customblue: #0026ff;
+  --custompink: #ff3250;
+  --customeyellow: #ffbb00;
+  --customgreen: #07e642;
+  --custompurple: #894fc6;
+  --customdarkblue: #121432;
+  --white: #ffffff;
+  --customgrey: #707070;
+  --customgreen1: #15d4a1;
+}
+
+body {
+  color: white;
+  position: relative;
+  background-color: var(--primary1);
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: 0px;
+}
+
+img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.gcontainer #body {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-areas: "Left Right";
+  padding: 16px;
+}
+
+.gcontainer #body #left {
+  color: red;
+  grid-area: Left;
+  padding: 15%;
+  position: relative;
+}
+
+.gcontainer #body #left .hamburger {
+  position: absolute;
+  top: 0%;
+  left: 2%;
+  cursor: pointer;
+}
+
+.gcontainer #body #left .profile {
+  margin: 5px;
+}
+
+.gcontainer #body #left .profile h1 {
+  font-size: 35px;
+  color: var(--white);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
