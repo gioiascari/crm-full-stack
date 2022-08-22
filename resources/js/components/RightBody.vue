@@ -5,15 +5,10 @@
             <h1>Hi Gioia</h1>
             <h2>Let's make project amazing</h2>
         </div>
-        <div class="search">
-            <input type="text" placeholder="Search you project" />
-            <p>
-                <i
-                    class="material-icons text-white bg-dark rounded rounded-full p-3"
-                >
-                    search
-                </i>
-            </p>
+        <div class="search w-full">
+            <input type="text" placeholder="Search you project" class="ml-3" />
+
+            <i class="material-icons text-white"> search </i>
         </div>
         <div class="project">
             <div class="a-project">

@@ -11019,6 +11019,19 @@ img {
           user-select: none;
 }
 
+.middle,
+.gcontainer #body #left .search i {
+  transition: 0.05s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
 .gcontainer #body {
   display: grid;
   grid-template-columns: 40% 60%;
@@ -11027,7 +11040,7 @@ img {
 }
 
 .gcontainer #body #left {
-  color: red;
+  color: white;
   grid-area: Left;
   padding: 15%;
   position: relative;
@@ -11049,5 +11062,49 @@ img {
   color: var(--white);
   font-weight: 500;
   text-transform: capitalize;
+}
+
+.gcontainer #body #left .profile h2 {
+  font-size: 16px;
+  color: var(--customgrey);
+  font-weight: 300;
+}
+
+.gcontainer #body #left .search {
+  border: unset;
+  border-radius: 15px;
+  padding: 17px 25px;
+  margin-top: 40px;
+  background-color: rgba(112, 112, 112, 0.3137254902);
+  position: relative;
+  height: 53px;
+  margin-bottom: 35px;
+}
+
+.gcontainer #body #left .search i {
+  opacity: 1;
+  left: 25px;
+  cursor: pointer;
+}
+
+.gcontainer #body #left .search input {
+  color: white;
+  border: unset;
+  padding: 0.2em;
+  background-color: transparent;
+  width: 100%;
+  caret-color: var(--white);
+}
+
+.gcontainer #body #left .search input::-moz-placeholder {
+  background-color: unset;
+  color: var(--customgrey);
+  font-size: 14px;
+}
+
+.gcontainer #body #left .search input::placeholder {
+  background-color: unset;
+  color: var(--customgrey);
+  font-size: 14px;
 }
 

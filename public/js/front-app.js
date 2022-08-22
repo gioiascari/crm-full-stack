@@ -2098,15 +2098,16 @@ var staticRenderFns = [function () {
   }, [_vm._v("\n    ualie\n    "), _c("div", {
     staticClass: "profile"
   }, [_c("h1", [_vm._v("Hi Gioia")]), _vm._v(" "), _c("h2", [_vm._v("Let's make project amazing")])]), _vm._v(" "), _c("div", {
-    staticClass: "search"
+    staticClass: "search w-full"
   }, [_c("input", {
+    staticClass: "ml-3",
     attrs: {
       type: "text",
       placeholder: "Search you project"
     }
-  }), _vm._v(" "), _c("p", [_c("i", {
-    staticClass: "material-icons text-white bg-dark rounded rounded-full p-3"
-  }, [_vm._v("\n                search\n            ")])])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("i", {
+    staticClass: "material-icons text-white"
+  }, [_vm._v(" search ")])]), _vm._v(" "), _c("div", {
     staticClass: "project"
   }, [_c("div", {
     staticClass: "a-project"
