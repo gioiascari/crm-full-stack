@@ -7,7 +7,13 @@
         </div>
         <div class="search">
             <input type="text" placeholder="Search you project" />
-            <p>ricerca</p>
+            <p>
+                <i
+                    class="material-icons text-white bg-dark rounded rounded-full p-3"
+                >
+                    search
+                </i>
+            </p>
         </div>
         <div class="project">
             <div class="a-project">
@@ -47,7 +53,11 @@
             </div>
             <div class="a-project">
                 <div class="box-color">
-                    image plus
+                    <i
+                        class="material-icons text-white bg-dark rounded rounded-full p-3"
+                    >
+                        add
+                    </i>
                     <span>PT</span>
                 </div>
                 <h5>Add Project</h5>

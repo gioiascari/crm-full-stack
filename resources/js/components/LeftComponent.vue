@@ -13,7 +13,13 @@
         <div class="task">
             <div class="add-task">
                 <h1>Today's Task</h1>
-                <div class="add-action">images add</div>
+                <div>
+                    <i
+                        class="material-icons text-white bg-dark rounded rounded-full p-3"
+                    >
+                        add
+                    </i>
+                </div>
             </div>
             <ul>
                 <li>Add Task</li>

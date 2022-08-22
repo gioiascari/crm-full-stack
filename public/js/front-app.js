@@ -2060,9 +2060,9 @@ var staticRenderFns = [function () {
     staticClass: "task"
   }, [_c("div", {
     staticClass: "add-task"
-  }, [_c("h1", [_vm._v("Today's Task")]), _vm._v(" "), _c("div", {
-    staticClass: "add-action"
-  }, [_vm._v("images add")])]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Add Task")])])])]);
+  }, [_c("h1", [_vm._v("Today's Task")]), _vm._v(" "), _c("div", [_c("i", {
+    staticClass: "material-icons text-white bg-dark rounded rounded-full p-3"
+  }, [_vm._v("\n                    add\n                ")])])]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Add Task")])])])]);
 }];
 render._withStripped = true;
 
@@ -2104,7 +2104,9 @@ var staticRenderFns = [function () {
       type: "text",
       placeholder: "Search you project"
     }
-  }), _vm._v(" "), _c("p", [_vm._v("ricerca")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("p", [_c("i", {
+    staticClass: "material-icons text-white bg-dark rounded rounded-full p-3"
+  }, [_vm._v("\n                search\n            ")])])]), _vm._v(" "), _c("div", {
     staticClass: "project"
   }, [_c("div", {
     staticClass: "a-project"
@@ -2130,7 +2132,9 @@ var staticRenderFns = [function () {
     staticClass: "a-project"
   }, [_c("div", {
     staticClass: "box-color"
-  }, [_vm._v("\n                image plus\n                "), _c("span", [_vm._v("PT")])]), _vm._v(" "), _c("h5", [_vm._v("Add Project")])])])]);
+  }, [_c("i", {
+    staticClass: "material-icons text-white bg-dark rounded rounded-full p-3"
+  }, [_vm._v("\n                    add\n                ")]), _vm._v(" "), _c("span", [_vm._v("PT")])]), _vm._v(" "), _c("h5", [_vm._v("Add Project")])])])]);
 }];
 render._withStripped = true;
 
