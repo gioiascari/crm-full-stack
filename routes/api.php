@@ -17,6 +17,9 @@ use App\Http\Resources\UpcomingResource;
 |
 */
 
+/**  For testing api http://postman.com **/
+
+// Default Route of laravel
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -37,11 +40,25 @@ Route::post('/upcoming', function(Request $request){
     ]);
 });
 
-//Delete upcoming task
+// Delete upcoming task
 Route::post('/upcoming/{taskId}', function($taskId){
     DB::table('upcomings')->where('taskId', $taskId)->delete();
-
+    //Quando viene eliminata una taskId visualizza 204
     return 204;
+});
 
+//** Today Task
+route::post('/dailytask', function(Request $request){
+    return Today::create([
+        'id'=>$request->id,
+        'title'=>$request->title,
+        'taskId'=>$request->taskId,
+    ]);
+});
+
+// Delete Today Task
+Route::delete('/dailytask/{taskId}', function($taskId){
+    DB::table('todays')->where('taskId', $taskId)->delete();
+    return 204;
 });
 
