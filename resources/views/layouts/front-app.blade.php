@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/front-app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -26,12 +26,8 @@
 <body>
     <div id="app">
         <app-component></app-component>
-
-
-        <main class="py-4">
-            @yield('content')
-        </main>
     </div>
+    <script src="{{ asset('js/front-app.js') }}"></script>
 </body>
 
 </html>
