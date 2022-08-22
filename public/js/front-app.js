@@ -2052,42 +2052,15 @@ var staticRenderFns = [function () {
     attrs: {
       id: "right"
     }
-  }, [_vm._v("\n    ualie\n    "), _c("div", {
-    staticClass: "profile"
-  }, [_c("h1", [_vm._v("Hi Gioia")]), _vm._v(" "), _c("h2", [_vm._v("Let's make project amazing")])]), _vm._v(" "), _c("div", {
-    staticClass: "search"
-  }, [_c("input", {
-    attrs: {
-      type: "text",
-      placeholder: "Search you project"
-    }
-  }), _vm._v(" "), _c("p", [_vm._v("ricerca")])]), _vm._v(" "), _c("div", {
-    staticClass: "project"
+  }, [_c("h1", [_vm._v("Development CRM")]), _vm._v(" "), _c("div", {
+    staticClass: "horizontal"
+  }, [_vm._v("images horizontal")]), _vm._v(" "), _c("p", [_vm._v("\n        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta et\n        obcaecati natus vitae porro enim culpa laboriosam sapiente doloribus\n        molestias magni id reiciendis nobis, corrupti est suscipit iste?\n        Dolore, veniam.\n    ")]), _vm._v(" "), _c("div", {
+    staticClass: "task"
   }, [_c("div", {
-    staticClass: "a-project"
-  }, [_c("div", {
-    staticClass: "box-color"
-  }, [_vm._v("\n                image overlay\n                "), _c("span", [_vm._v("PT")])]), _vm._v(" "), _c("h5", [_vm._v("Development")])]), _vm._v(" "), _c("div", {
-    staticClass: "a-project"
-  }, [_c("div", {
-    staticClass: "box-color"
-  }, [_vm._v("\n                image overlay\n                "), _c("span", [_vm._v("PT")])]), _vm._v(" "), _c("h5", [_vm._v("Design")])]), _vm._v(" "), _c("div", {
-    staticClass: "a-project"
-  }, [_c("div", {
-    staticClass: "box-color"
-  }, [_vm._v("\n                image overlay\n                "), _c("span", [_vm._v("PT")])]), _vm._v(" "), _c("h5", [_vm._v("Testing")])]), _vm._v(" "), _c("div", {
-    staticClass: "a-project"
-  }, [_c("div", {
-    staticClass: "box-color"
-  }, [_vm._v("\n                image overlay\n                "), _c("span", [_vm._v("PT")])]), _vm._v(" "), _c("h5", [_vm._v("Medium Draft")])]), _vm._v(" "), _c("div", {
-    staticClass: "a-project"
-  }, [_c("div", {
-    staticClass: "box-color"
-  }, [_vm._v("\n                image overlay\n                "), _c("span", [_vm._v("PT")])]), _vm._v(" "), _c("h5", [_vm._v("Landing Page")])]), _vm._v(" "), _c("div", {
-    staticClass: "a-project"
-  }, [_c("div", {
-    staticClass: "box-color"
-  }, [_vm._v("\n                image plus\n                "), _c("span", [_vm._v("PT")])]), _vm._v(" "), _c("h5", [_vm._v("Add Project")])])])]);
+    staticClass: "add-task"
+  }, [_c("h1", [_vm._v("Today's Task")]), _vm._v(" "), _c("div", {
+    staticClass: "add-action"
+  }, [_vm._v("images add")])]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Add Task")])])])]);
 }];
 render._withStripped = true;
 
