@@ -1,5 +1,6 @@
 <?php
 
+use App\Today;
 use App\Upcoming;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -41,14 +42,14 @@ Route::post('/upcoming', function(Request $request){
 });
 
 // Delete upcoming task
-Route::post('/upcoming/{taskId}', function($taskId){
+Route::delete('/upcoming/{taskId}', function($taskId){
     DB::table('upcomings')->where('taskId', $taskId)->delete();
     //Quando viene eliminata una taskId visualizza 204
     return 204;
 });
 
 //** Today Task
-route::post('/dailytask', function(Request $request){
+Route::post('/dailytask', function(Request $request){
     return Today::create([
         'id'=>$request->id,
         'title'=>$request->title,

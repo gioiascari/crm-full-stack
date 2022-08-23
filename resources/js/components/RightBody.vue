@@ -21,7 +21,9 @@
                 </div>
             </div>
             <ul class="tasks-list">
-                <li>Add Task</li>
+                <li v-for="(task, i) in todayTasks" :key="i">
+                    <!-- {{ task.title }} -->
+                </li>
             </ul>
         </div>
         <div class="upcoming">
@@ -48,7 +50,7 @@
                                 <input
                                     type="checkbox"
                                     name="test"
-                                    @change="checkUpcoming(taskId)"
+                                    @change="checkUpcoming(upcomingTask.taskId)"
                                     :checked="upcomingTask.completed"
                                 />
                                 <span></span>
@@ -78,7 +80,7 @@ export default {
     name: "RightBody",
     data() {
         return {
-            todayTask: [],
+            todayTasks: [],
             upcoming: [],
             newTask: "",
         };
@@ -128,11 +130,10 @@ export default {
         },
 
         //Delete upcoming task
-
         deleteUpcoming(taskId) {
             if (confirm("Are you sure?")) {
                 fetch(`/api/upcoming/${taskId}`, {
-                    method: "POST",
+                    method: "delete",
                     headers: {
                         "content-type": "application/json",
                     },
@@ -149,44 +150,43 @@ export default {
 
         //Check upcoming task
         checkUpcoming(taskId) {
-            if (this.todayTask.length > 4) {
+            if (this.todayTasks.length > 4) {
                 alert("Sorry complete existing task");
                 window.location.href = "/";
             } else {
-                this.addDailyTak(taskId);
+                console.log("check");
+                this.addDailyTask(taskId);
 
-                //Deelete this task from DB
-                //Devo per forza inserire method post poichè sulla chiamata api è così, se fosse stato Route::delete sarebbe andato bene
-                fetch(`/api/upcoming/${taskId}`, { method: "post" }).then(
+                // Deelete this task from DB
+                fetch(`/api/upcoming/${taskId}`, { method: "delete" }).then(
                     () => {
                         this.upcoming = this.upcoming.filter(
-                            ({ taskId: id }) => id != taskId
+                            ({ taskId: id }) => id !== taskId
                         );
+                        // console.log(this.upcoming);
                     }
                 );
             }
-            console.log("check");
         },
 
         //Today
         fetchToday() {},
 
         //Add daily task
-        addDailyTak(taskId) {
+        addDailyTask(taskId) {
             //Get Task
             const task = this.upcoming.filter(
                 ({ taskId: id }) => id == taskId
             )[0];
 
-            //Post Request
-            fetch("/api/dailitask", {
+            fetch("/api/dailytask", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
                 },
                 body: JSON.stringify(task),
             })
-                .then(() => this.todayTask.unshift(task))
+                .then(() => this.todayTasks.unshift(task))
                 .catch((e) => console.log(e));
         },
     },
