@@ -48,6 +48,7 @@
                                 <input
                                     type="checkbox"
                                     name="test"
+                                    @change="checkUpcoming(taskId)"
                                     :checked="upcomingTask.completed"
                                 />
                                 <span></span>
@@ -115,7 +116,7 @@ export default {
                 //Post Request
                 fetch("/api/upcoming", {
                     method: "POST",
-                    header: {
+                    headers: {
                         "content-type": "application/json",
                     },
                     body: JSON.stringify(newTask), //converts a JavaScript object or value to a JSON string
@@ -132,7 +133,7 @@ export default {
             if (confirm("Are you sure?")) {
                 fetch(`/api/upcoming/${taskId}`, {
                     method: "POST",
-                    header: {
+                    headers: {
                         "content-type": "application/json",
                     },
                 })
@@ -146,8 +147,48 @@ export default {
             }
         },
 
+        //Check upcoming task
+        checkUpcoming(taskId) {
+            if (this.todayTask.length > 4) {
+                alert("Sorry complete existing task");
+                window.location.href = "/";
+            } else {
+                this.addDailyTak(taskId);
+
+                //Deelete this task from DB
+                //Devo per forza inserire method post poichè sulla chiamata api è così, se fosse stato Route::delete sarebbe andato bene
+                fetch(`/api/upcoming/${taskId}`, { method: "post" }).then(
+                    () => {
+                        this.upcoming = this.upcoming.filter(
+                            ({ taskId: id }) => id != taskId
+                        );
+                    }
+                );
+            }
+            console.log("check");
+        },
+
         //Today
         fetchToday() {},
+
+        //Add daily task
+        addDailyTak(taskId) {
+            //Get Task
+            const task = this.upcoming.filter(
+                ({ taskId: id }) => id == taskId
+            )[0];
+
+            //Post Request
+            fetch("/api/dailitask", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(task),
+            })
+                .then(() => this.todayTask.unshift(task))
+                .catch((e) => console.log(e));
+        },
     },
 };
 </script>
