@@ -11020,6 +11020,8 @@ img {
 }
 
 .middle,
+.gcontainer #body #left .project .projects .a-project div.box-color i,
+.gcontainer #body #left .project .projects .a-project div.box-color span,
 .gcontainer #body #left .search i {
   transition: 0.05s ease;
   opacity: 0;
@@ -11036,7 +11038,7 @@ img {
   display: grid;
   grid-template-columns: 40% 60%;
   grid-template-areas: "Left Right";
-  padding: 16px;
+  padding: 14px;
 }
 
 .gcontainer #body #left {
@@ -11050,11 +11052,10 @@ img {
   position: absolute;
   top: 0%;
   left: 2%;
-  cursor: pointer;
 }
 
 .gcontainer #body #left .profile {
-  margin: 5px;
+  margin-top: 5px;
 }
 
 .gcontainer #body #left .profile h1 {
@@ -11106,5 +11107,91 @@ img {
   background-color: unset;
   color: var(--customgrey);
   font-size: 14px;
+}
+
+.gcontainer #body #left .project {
+  margin-bottom: 70px;
+}
+
+.gcontainer #body #left .project h3 {
+  font-size: 20px;
+  color: white;
+}
+
+.gcontainer #body #left .project h3 span {
+  font-size: 14px;
+  color: var(--customgrey);
+}
+
+.gcontainer #body #left .project .projects {
+  margin-top: 27px;
+  display: grid;
+  grid-template-columns: repeat(3, 112px);
+  grid-auto-flow: dense;
+}
+
+.gcontainer #body #left .project .projects .a-project {
+  border-radius: 1em;
+  background-color: transparent;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+.gcontainer #body #left .project .projects .a-project span {
+  font-size: 17px;
+  font-size: 900;
+  color: white;
+}
+
+.gcontainer #body #left .project .projects .a-project div.box-color {
+  height: 100px;
+  border-radius: 1em;
+  overflow: hidden;
+  position: relative;
+}
+
+.gcontainer #body #left .project .projects .a-project div.box-color span {
+  opacity: 1;
+}
+
+.gcontainer #body #left .project .projects .a-project div.box-color i {
+  opacity: 1;
+}
+
+.gcontainer #body #left .project .projects .a-project div.box-color:hover {
+  border: 4px solid var(--custompink);
+  transition: border 400ms ease;
+}
+
+.gcontainer #body #left .project .projects .a-project:nth-child(1) .box-color {
+  background-color: var(--customblue);
+}
+
+.gcontainer #body #left .project .projects .a-project:nth-child(2) .box-color {
+  background-color: var(--custompink);
+}
+
+.gcontainer #body #left .project .projects .a-project:nth-child(3) .box-color {
+  background-color: var(--customeyellow);
+}
+
+.gcontainer #body #left .project .projects .a-project:nth-child(4) .box-color {
+  background-color: var(--customgreen);
+}
+
+.gcontainer #body #left .project .projects .a-project:nth-child(5) .box-color {
+  background-color: var(--custompurple);
+}
+
+.gcontainer #body #left .project .projects .a-project:nth-child(6) .box-color {
+  background-color: var(--customblue);
+}
+
+.gcontainer #body #right {
+  position: relative;
+  grid-area: Right;
+  background-color: white;
+  border-radius: 15px;
+  padding: 65px 85px 70px 20px;
 }
 
