@@ -13,8 +13,8 @@
             molestias magni id reiciendis nobis, corrupti est suscipit iste?
             Dolore, veniam.
         </p>
-        <div class="task">
-            <div class="add-task">
+        <div class="tasks">
+            <div class="add-tasks">
                 <h1>Today's Task</h1>
                 <div class="add-action">
                     <i class="material-icons text-dark">add</i>
@@ -23,6 +23,53 @@
             <ul class="tasks-list">
                 <li>Add Task</li>
             </ul>
+        </div>
+        <div class="upcoming">
+            <div
+                class="add-tasks d-flex items-center justify-content-between flex-row"
+            >
+                <h2>Upcoming</h2>
+                <div class="add-action cursor-pointer">
+                    <i class="material-icons">add</i>
+                </div>
+            </div>
+            <!-- Form -->
+            <form action="">
+                <input type="text" v-model="newTask" />
+            </form>
+            <!-- /Form -->
+
+            <!-- Left task box -->
+            <ul class="tasks-list">
+                <li v-for="upcomingTask in upcoming" :key="upcomingTask.i">
+                    <div class="info">
+                        <div class="left">
+                            <label class="myCheckbox">
+                                <input
+                                    type="checkbox"
+                                    name="test"
+                                    :checked="upcomingTask.completed"
+                                    @change="checkUpcoming(upcomingTask.taskId)"
+                                />
+                                <span></span>
+                            </label>
+                            <h4>{{ upcomingTask.title }}</h4>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!--/ Left task box -->
+
+            <!-- Right task box -->
+            <div class="right">
+                <i class="material-icons">edit</i>
+                <i
+                    class="material-icons"
+                    @click="deleteUpcoming(upcomingTask.taskId)"
+                    >delete</i
+                >
+            </div>
+            <!-- /Right task box -->
         </div>
     </div>
 </template>
@@ -39,6 +86,7 @@ export default {
     },
     mounted() {
         this.fetchUpcoming();
+        this.fetchToday();
     },
     methods: {
         //Upcoming
@@ -52,6 +100,12 @@ export default {
                 })
                 .catch((e) => console.log(e));
         },
+        //Add Upcoming task
+        addUpcomingTask(e) {
+            e.preventDefault();
+            console.log(this.newTask);
+        },
+
         //Today
         fetchToday() {},
     },

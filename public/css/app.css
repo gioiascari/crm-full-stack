@@ -11020,6 +11020,8 @@ img {
 }
 
 .middle,
+.gcontainer #body #right .tasks ul.tasks-list li .info .left label [type=checkbox]:checked + span:before,
+.gcontainer #body #right .upcoming ul.tasks-list li .info .left label [type=checkbox]:checked + span:before,
 .gcontainer #body #left .project .projects .a-project div.box-color i,
 .gcontainer #body #left .project .projects .a-project div.box-color span,
 .gcontainer #body #left .search i {
@@ -11218,7 +11220,7 @@ img {
   margin-bottom: 10px;
 }
 
-.gcontainer #body #right .horizontal .leftH {
+.gcontainer #body #right .leftH {
   height: 10px;
   width: 15%;
   background-color: var(--customgrey);
@@ -11227,18 +11229,18 @@ img {
   transition: 0.2s ease;
 }
 
-.gcontainer #body #right .horizontal .leftH:hover {
+.gcontainer #body #right .leftH:hover {
   background-color: var(--customgreen);
   opacity: 1;
   transition: 0.5s ease-in-out;
 }
 
-.gcontainer #body #right .horizontal .leftH:focus {
+.gcontainer #body #right .leftH:focus {
   background-color: var(--customgreen);
   opacity: 1;
 }
 
-.gcontainer #body #right .horizontal .rightH {
+.gcontainer #body #right .rightH {
   height: 10px;
   width: 15%;
   background-color: var(--customgrey);
@@ -11247,27 +11249,160 @@ img {
   transition: 0.2s ease;
 }
 
-.gcontainer #body #right .horizontal .rightH:hover {
+.gcontainer #body #right .rightH:hover {
   background-color: var(--customgreen);
   opacity: 1;
   transition: 0.5s ease-in-out;
 }
 
-.gcontainer #body #right .horizontal .rightH:focus {
+.gcontainer #body #right .rightH:focus {
   background-color: var(--customgreen);
   opacity: 1;
 }
 
-.gcontainer #body #right .horizontal p {
+.gcontainer #body #right p {
   font-size: 12px;
   font-weight: 300;
   width: 500px;
 }
 
-.gcontainer #body #right .horizontal .user-icon {
+.gcontainer #body #right .user-icon {
   position: absolute;
   right: 40px;
   top: 65px;
   cursor: pointer;
+}
+
+.gcontainer #body #right .tasks,
+.gcontainer #body #right .upcoming {
+  margin-bottom: 1.3em;
+}
+
+.gcontainer #body #right .tasks .add-tasks h2,
+.gcontainer #body #right .upcoming .add-tasks h2 {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.gcontainer #body #right .tasks input[type=text],
+.gcontainer #body #right .tasks form,
+.gcontainer #body #right .upcoming input[type=text],
+.gcontainer #body #right .upcoming form {
+  border: unset;
+  border-bottom: 1px solid var(--customgrey);
+  width: 100%;
+  caret-color: var(--primary1);
+}
+
+.gcontainer #body #right .tasks ul.tasks-list,
+.gcontainer #body #right .upcoming ul.tasks-list {
+  margin-top: 15px;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li,
+.gcontainer #body #right .upcoming ul.tasks-list li {
+  display: flex;
+  flex-direction: column;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info,
+.gcontainer #body #right .upcoming ul.tasks-list li .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.3em;
+  border-radius: 0.3em 3em;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info:hover,
+.gcontainer #body #right .upcoming ul.tasks-list li .info:hover {
+  background-color: rgba(112, 112, 112, 0.062745098);
+  transition: all 400ms ease-in-out;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info .left,
+.gcontainer #body #right .upcoming ul.tasks-list li .info .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info .left label,
+.gcontainer #body #right .upcoming ul.tasks-list li .info .left label {
+  cursor: pointer;
+  margin-top: 0.3em;
+  padding-top: 0.4em;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info .left label input,
+.gcontainer #body #right .upcoming ul.tasks-list li .info .left label input {
+  display: none;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info .left label span,
+.gcontainer #body #right .upcoming ul.tasks-list li .info .left label span {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  position: relative;
+  border-radius: 50px;
+  border: 2px solid var(--customgreen1);
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info .left label [type=checkbox]:checked + span:before,
+.gcontainer #body #right .upcoming ul.tasks-list li .info .left label [type=checkbox]:checked + span:before {
+  content: "\2714";
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  border: 2px solid var(--customgreen1);
+  background-color: var(--customgreen1);
+  opacity: 1;
+  font-size: 12px;
+  top: 45%;
+  color: white;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info .left h4,
+.gcontainer #body #right .upcoming ul.tasks-list li .info .left h4 {
+  margin-left: 15px;
+  font-size: 14px;
+  color: var(--primary2);
+  font-weight: 600;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info .right,
+.gcontainer #body #right .upcoming ul.tasks-list li .info .right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info .right button,
+.gcontainer #body #right .upcoming ul.tasks-list li .info .right button {
+  padding: 5px 30px;
+  border-radius: 50px;
+  border: unset;
+  box-shadow: unset !important;
+  width: 120px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.approved {
+  background-color: rgba(21, 212, 161, 0.3137254902);
+  color: #15d4a1;
+}
+
+.inprogress {
+  background-color: rgba(0, 96, 255, 0.1254901961);
+  color: #0060ff;
+}
+
+.rejected {
+  background-color: rgba(255, 14, 70, 0.1254901961);
+  color: #ff0e46;
 }
 
