@@ -49,7 +49,6 @@
                                     type="checkbox"
                                     name="test"
                                     :checked="upcomingTask.completed"
-                                    @change="checkUpcoming(upcomingTask.taskId)"
                                 />
                                 <span></span>
                             </label>
@@ -58,11 +57,11 @@
                         <!-- Right task box -->
                         <div class="right">
                             <i class="material-icons">edit</i>
-                            <i
-                                class="material-icons"
+                            <button
                                 @click="deleteUpcoming(upcomingTask.taskId)"
-                                >delete</i
                             >
+                                <i class="material-icons">delete</i>
+                            </button>
                         </div>
                         <!-- /Right task box -->
                     </div>
@@ -86,6 +85,8 @@ export default {
     mounted() {
         this.fetchUpcoming();
         this.fetchToday();
+        // this.addUpcomingTask();
+        // this.deleteUpcoming();
     },
     methods: {
         //Upcoming
@@ -100,11 +101,11 @@ export default {
                 .catch((e) => console.log(e));
         },
         //Add Upcoming task
-        addUpcomingTask(e) {
-            e.preventDefault();
+        addUpcomingTask(event) {
+            event.preventDefault();
             // console.log(this.newTask);
             if (this.upcoming.length > 4) {
-                alert("Please complete the upcoming tasks");
+                alert("Please complete the upcoming task");
             } else {
                 const newTask = {
                     title: this.newTask,
@@ -119,6 +120,29 @@ export default {
                     },
                     body: JSON.stringify(newTask), //converts a JavaScript object or value to a JSON string
                 }).then(() => this.upcoming.push(newTask)); //upcoming is an array
+
+                //Clear or reset new task
+                this.newTask = "";
+            }
+        },
+
+        //Delete upcoming task
+
+        deleteUpcoming(taskId) {
+            if (confirm("Are you sure?")) {
+                fetch(`/api/upcoming/${taskId}`, {
+                    method: "POST",
+                    header: {
+                        "content-type": "application/json",
+                    },
+                })
+                    .then((r) => r.json())
+                    .then(() => {
+                        this.upcoming = this.upcoming.filter(
+                            ({ taskId: id }) => id !== taskId
+                        );
+                    })
+                    .catch((e) => console.log(e));
             }
         },
 
