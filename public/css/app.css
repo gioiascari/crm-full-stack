@@ -11187,11 +11187,73 @@ img {
   background-color: var(--customblue);
 }
 
+.gcontainer #body #left .project .grid {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.gcontainer #body #left .project .grid-right {
+  bottom: 0;
+  right: -10%;
+  position: absolute;
+}
+
 .gcontainer #body #right {
   position: relative;
   grid-area: Right;
   background-color: white;
   border-radius: 15px;
   padding: 65px 85px 70px 20px;
+}
+
+.gcontainer #body #right h1 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.gcontainer #body #right .horizontal {
+  margin-bottom: 10px;
+}
+
+.gcontainer #body #right .horizontal .leftH {
+  height: 10px;
+  width: 15%;
+  background-color: var(--customgrey);
+  opacity: 0.2;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.gcontainer #body #right .horizontal .leftH:hover {
+  background-color: var(--customgreen);
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+.gcontainer #body #right .horizontal .leftH:focus {
+  background-color: var(--customgreen);
+  opacity: 1;
+}
+
+.gcontainer #body #right .horizontal .rightH {
+  height: 10px;
+  width: 15%;
+  background-color: var(--customgrey);
+  opacity: 0.2;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.gcontainer #body #right .horizontal .rightH:hover {
+  background-color: var(--customgreen);
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+.gcontainer #body #right .horizontal .rightH:focus {
+  background-color: var(--customgreen);
+  opacity: 1;
 }
 
