@@ -219,6 +219,7 @@ img {
             position: relative;
             grid-area: Right;
             background-color: white;
+            color: var(--customdarkblue);
             border-radius: 15px;
             padding: 65px 85px 70px 20px;
             h1 {
@@ -261,6 +262,17 @@ img {
                         background-color: var(--customgreen);
                         opacity: 1;
                     }
+                }
+                p {
+                    font-size: 12px;
+                    font-weight: 300;
+                    width: 500px;
+                }
+                .user-icon {
+                    position: absolute;
+                    right: 40px;
+                    top: 65px;
+                    cursor: pointer;
                 }
             }
         }

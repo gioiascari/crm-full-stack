@@ -1,6 +1,6 @@
 <template>
     <div id="right">
-        <h1 class="text-3xl font-bold text-dark">Development CRM</h1>
+        <h1 class="text-3xl font-bold">Development CRM</h1>
 
         <div class="horizontal flex">
             <button class="leftH"></button>
@@ -16,9 +16,11 @@
         <div class="task">
             <div class="add-task">
                 <h1>Today's Task</h1>
-                <div></div>
+                <div class="add-action">
+                    <i class="material-icons text-dark">add</i>
+                </div>
             </div>
-            <ul>
+            <ul class="tasks-list">
                 <li>Add Task</li>
             </ul>
         </div>
@@ -28,6 +30,31 @@
 <script>
 export default {
     name: "RightBody",
+    data() {
+        return {
+            todayTask: [],
+            upcoming: [],
+            newTask: "",
+        };
+    },
+    mounted() {
+        this.fetchUpcoming();
+    },
+    methods: {
+        //Upcoming
+        fetchUpcoming() {
+            //The fetch() method in JavaScript is used to request to the server and load the information on the webpages. The request can be of any APIs that return the data of the format JSON
+            fetch("/api/upcoming")
+                .then((res) => res.json())
+                .then(({ data }) => {
+                    console.log(data);
+                    this.upcoming = data;
+                })
+                .catch((e) => console.log(e));
+        },
+        //Today
+        fetchToday() {},
+    },
 };
 </script>
 

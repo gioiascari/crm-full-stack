@@ -11203,6 +11203,7 @@ img {
   position: relative;
   grid-area: Right;
   background-color: white;
+  color: var(--customdarkblue);
   border-radius: 15px;
   padding: 65px 85px 70px 20px;
 }
@@ -11255,5 +11256,18 @@ img {
 .gcontainer #body #right .horizontal .rightH:focus {
   background-color: var(--customgreen);
   opacity: 1;
+}
+
+.gcontainer #body #right .horizontal p {
+  font-size: 12px;
+  font-weight: 300;
+  width: 500px;
+}
+
+.gcontainer #body #right .horizontal .user-icon {
+  position: absolute;
+  right: 40px;
+  top: 65px;
+  cursor: pointer;
 }
 
