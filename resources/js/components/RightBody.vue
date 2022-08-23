@@ -34,7 +34,7 @@
                 </div>
             </div>
             <!-- Form -->
-            <form action="">
+            <form action="" @submit="addUpcomingTask">
                 <input type="text" v-model="newTask" />
             </form>
             <!-- /Form -->
@@ -55,21 +55,20 @@
                             </label>
                             <h4>{{ upcomingTask.title }}</h4>
                         </div>
+                        <!-- Right task box -->
+                        <div class="right">
+                            <i class="material-icons">edit</i>
+                            <i
+                                class="material-icons"
+                                @click="deleteUpcoming(upcomingTask.taskId)"
+                                >delete</i
+                            >
+                        </div>
+                        <!-- /Right task box -->
                     </div>
                 </li>
             </ul>
             <!--/ Left task box -->
-
-            <!-- Right task box -->
-            <div class="right">
-                <i class="material-icons">edit</i>
-                <i
-                    class="material-icons"
-                    @click="deleteUpcoming(upcomingTask.taskId)"
-                    >delete</i
-                >
-            </div>
-            <!-- /Right task box -->
         </div>
     </div>
 </template>
@@ -103,7 +102,24 @@ export default {
         //Add Upcoming task
         addUpcomingTask(e) {
             e.preventDefault();
-            console.log(this.newTask);
+            // console.log(this.newTask);
+            if (this.upcoming.length > 4) {
+                alert("Please complete the upcoming tasks");
+            } else {
+                const newTask = {
+                    title: this.newTask,
+                    waiting: true, //As Default
+                    taskId: Math.random().toString(36).substring(7), //generate a random string
+                };
+                //Post Request
+                fetch("/api/upcoming", {
+                    method: "POST",
+                    header: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(newTask), //converts a JavaScript object or value to a JSON string
+                }).then(() => this.upcoming.push(newTask)); //upcoming is an array
+            }
         },
 
         //Today
