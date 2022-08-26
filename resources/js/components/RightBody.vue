@@ -16,7 +16,9 @@
         <!-- TODAY TASKS -->
 
         <div class="tasks">
-            <div class="add-tasks">
+            <div
+                class="add-tasks add-tasks d-flex items-center justify-content-between flex-row"
+            >
                 <h1>Today's Task</h1>
                 <div class="add-action">
                     <i class="material-icons text-dark">add</i>
@@ -39,8 +41,14 @@
                         </div>
                         <!-- Right task box -->
                         <div class="right">
-                            <i class="material-icons">edit</i>
-                            <button @click="deleteTask(task.taskId)">
+                            <button style="width: fit-content">
+                                <i class="material-icons">edit</i>
+                            </button>
+
+                            <button
+                                style="width: fit-content"
+                                @click="deleteTask(task.taskId)"
+                            >
                                 <i class="material-icons">delete</i>
                             </button>
                         </div>
@@ -189,12 +197,7 @@ export default {
                 this.addDailyTask(taskId);
 
                 // Deleted this task from DB
-                fetch(`/api/upcoming/${taskId}`, {
-                    method: "delete",
-                    headers: {
-                        "content-type": "application/json",
-                    },
-                })
+                fetch(`/api/upcoming/${taskId}`, { method: "delete" })
                     .then(() => {
                         this.upcoming = this.upcoming.filter(
                             ({ taskId: id }) => id !== taskId
@@ -214,6 +217,8 @@ export default {
                 })
                 .catch((e) => console.log(e));
         },
+
+        //Add daily task
         addDailyTask(taskId) {
             const task = this.upcoming.filter(
                 ({ taskId: id }) => id == taskId
@@ -231,7 +236,34 @@ export default {
                 .then(() => this.todayTasks.unshift(task))
                 .catch((e) => console.log(e));
         },
-        //Add daily task
+
+        //Update today task
+        updateTodayTask(taskId) {
+            if (confirm("Task completed?")) {
+                fetch(`/api/dailytask/${taskId}`, { method: "delete" })
+                    .then(() => {
+                        this.todayTasks = this.todayTasks.filter(
+                            ({ taskId: id }) => id !== taskId
+                        );
+                    })
+                    .catch((e) => console.log(e));
+            }
+        },
+
+        //Delete Today Task
+        deleteTask(taskId) {
+            if (confirm("Are you sure?")) {
+                fetch(`/api/dailytask/${taskId}`, { method: "delete" })
+                    .then((r) => r.json())
+                    .then(
+                        () =>
+                            (this.todayTasks = this.todayTasks.filter(
+                                ({ taskId: id }) => id !== taskId
+                            ))
+                    )
+                    .catch((e) => console.log(e));
+            }
+        },
     },
 };
 </script>
