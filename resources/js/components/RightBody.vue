@@ -13,6 +13,8 @@
             molestias magni id reiciendis nobis, corrupti est suscipit iste?
             Dolore, veniam.
         </p>
+        <!-- TODAY TASKS -->
+
         <div class="tasks">
             <div class="add-tasks">
                 <h1>Today's Task</h1>
@@ -22,10 +24,34 @@
             </div>
             <ul class="tasks-list">
                 <li v-for="(task, i) in todayTasks" :key="i">
-                    <!-- {{ task.title }} -->
+                    <div class="info">
+                        <div class="left">
+                            <label class="myCheckbox">
+                                <input
+                                    type="checkbox"
+                                    name="test"
+                                    @change="updateTodayTask(task.taskId)"
+                                    :checked="task.completed"
+                                />
+                                <span></span>
+                            </label>
+                            <h4>{{ task.title }}</h4>
+                        </div>
+                        <!-- Right task box -->
+                        <div class="right">
+                            <i class="material-icons">edit</i>
+                            <button @click="deleteTask(task.taskId)">
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </div>
+                        <!-- /Right task box -->
+                    </div>
                 </li>
             </ul>
         </div>
+        <!-- /TODAY TASKS -->
+
+        <!-- UPCOMING TASKS -->
         <div class="upcoming">
             <div
                 class="add-tasks d-flex items-center justify-content-between flex-row"
@@ -72,6 +98,7 @@
             </ul>
             <!--/ Left task box -->
         </div>
+        <!-- /UPCOMING TASKS -->
     </div>
 </template>
 
@@ -105,8 +132,9 @@ export default {
         },
         //Add Upcoming task
         addUpcomingTask(event) {
+            //al refresh della pagina i dati aggiunti rimangono uguali
             event.preventDefault();
-            // console.log(this.newTask);
+
             if (this.upcoming.length > 4) {
                 alert("Please complete the upcoming task");
             } else {
@@ -122,7 +150,9 @@ export default {
                         "content-type": "application/json",
                     },
                     body: JSON.stringify(newTask), //converts a JavaScript object or value to a JSON string
-                }).then(() => this.upcoming.push(newTask)); //upcoming is an array
+                })
+                    .then(() => this.upcoming.push(newTask))
+                    .catch((e) => console.log(e)); //upcoming is an array
 
                 //Clear or reset new task
                 this.newTask = "";
@@ -152,32 +182,36 @@ export default {
         checkUpcoming(taskId) {
             if (this.todayTasks.length > 4) {
                 alert("Sorry complete existing task");
+                //Refresh
                 window.location.href = "/";
             } else {
                 console.log("check");
                 this.addDailyTask(taskId);
 
-                // Deelete this task from DB
-                fetch(`/api/upcoming/${taskId}`, { method: "delete" }).then(
-                    () => {
+                // Deleted this task from DB
+                fetch(`/api/upcoming/${taskId}`, {
+                    method: "delete",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                })
+                    .then(() => {
                         this.upcoming = this.upcoming.filter(
                             ({ taskId: id }) => id !== taskId
                         );
-                        // console.log(this.upcoming);
-                    }
-                );
+                    })
+                    .catch((e) => console.log(e));
             }
         },
 
         //Today
         fetchToday() {},
-
-        //Add daily task
         addDailyTask(taskId) {
-            //Get Task
             const task = this.upcoming.filter(
                 ({ taskId: id }) => id == taskId
             )[0];
+
+            console.log(task, "task");
 
             fetch("/api/dailytask", {
                 method: "POST",
@@ -189,6 +223,7 @@ export default {
                 .then(() => this.todayTasks.unshift(task))
                 .catch((e) => console.log(e));
         },
+        //Add daily task
     },
 };
 </script>

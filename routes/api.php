@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\UpcomingResource;
+use App\Http\Resources\TodayTaskResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,14 @@ Route::delete('/upcoming/{taskId}', function($taskId){
 });
 
 //** Today Task
+
+//Get all tasks
+Route::get('/dailytask', function(){
+    $todayTasks = Today::all();
+    return TodayTaskResource::collection($todayTasks);
+});
+
+//Add Task
 Route::post('/dailytask', function(Request $request){
     return Today::create([
         'id'=>$request->id,

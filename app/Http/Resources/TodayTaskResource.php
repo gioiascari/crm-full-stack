@@ -19,7 +19,6 @@ class TodayTaskResource extends JsonResource
             'title'=> $this->title,
             'completed'=> $this->completed,
             'approved'=> $this->approved,
-            'waiting'=> $this->waiting,
             'taskId'=> $this->taskId,
         ];
     }
