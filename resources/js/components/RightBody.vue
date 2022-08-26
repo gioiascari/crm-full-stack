@@ -20,9 +20,6 @@
                 class="add-tasks add-tasks d-flex items-center justify-content-between flex-row"
             >
                 <h1>Today's Task</h1>
-                <div class="add-action">
-                    <i class="material-icons text-dark">add</i>
-                </div>
             </div>
             <ul class="tasks-list">
                 <li v-for="(task, i) in todayTasks" :key="i">
@@ -41,14 +38,11 @@
                         </div>
                         <!-- Right task box -->
                         <div class="right">
-                            <button style="width: fit-content">
+                            <button class="mr-3">
                                 <i class="material-icons">edit</i>
                             </button>
 
-                            <button
-                                style="width: fit-content"
-                                @click="deleteTask(task.taskId)"
-                            >
+                            <button @click="deleteTask(task.taskId)">
                                 <i class="material-icons">delete</i>
                             </button>
                         </div>
@@ -64,14 +58,13 @@
             <div
                 class="add-tasks d-flex items-center justify-content-between flex-row"
             >
-                <h2>Upcoming</h2>
-                <div class="add-action cursor-pointer">
-                    <i class="material-icons">add</i>
+                <div class="pb-3">
+                    <h2>Upcoming</h2>
                 </div>
             </div>
             <!-- Form -->
             <form action="" @submit="addUpcomingTask">
-                <input type="text" v-model="newTask" />
+                <input type="text" v-model="newTask" placeholder="Write task" />
             </form>
             <!-- /Form -->
 
@@ -93,7 +86,9 @@
                         </div>
                         <!-- Right task box -->
                         <div class="right">
-                            <i class="material-icons">edit</i>
+                            <button class="mr-3">
+                                <i class="material-icons">edit</i>
+                            </button>
                             <button
                                 @click="deleteUpcoming(upcomingTask.taskId)"
                             >

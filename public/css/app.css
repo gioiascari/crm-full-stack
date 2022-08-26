@@ -11382,13 +11382,21 @@ img {
 
 .gcontainer #body #right .tasks ul.tasks-list li .info .right button,
 .gcontainer #body #right .upcoming ul.tasks-list li .info .right button {
-  padding: 5px 30px;
+  padding: 7px 10px;
+  background-color: var(--customgreen1);
   border-radius: 50px;
   border: unset;
   box-shadow: unset !important;
-  width: 120px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   font-size: 12px;
   white-space: nowrap;
+}
+
+.gcontainer #body #right .tasks ul.tasks-list li .info .right button i,
+.gcontainer #body #right .upcoming ul.tasks-list li .info .right button i {
+  color: white;
 }
 
 .approved {

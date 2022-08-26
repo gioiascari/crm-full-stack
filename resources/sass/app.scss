@@ -356,13 +356,17 @@ img {
                                 align-items: center;
                                 justify-content: space-between;
                                 button {
-                                    padding: 5px 30px;
+                                    padding: 7px 10px;
+                                    background-color: var(--customgreen1);
                                     border-radius: 50px;
                                     border: unset;
                                     box-shadow: unset !important;
-                                    width: 120px;
+                                    width: fit-content;
                                     font-size: 12px;
                                     white-space: nowrap;
+                                    i {
+                                        color: white;
+                                    }
                                 }
                             }
                         }
