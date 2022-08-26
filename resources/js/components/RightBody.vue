@@ -205,7 +205,15 @@ export default {
         },
 
         //Today
-        fetchToday() {},
+        fetchToday() {
+            fetch("/api/dailytask")
+                .then((res) => res.json())
+                .then(({ data }) => {
+                    console.log(data);
+                    this.todayTasks = data;
+                })
+                .catch((e) => console.log(e));
+        },
         addDailyTask(taskId) {
             const task = this.upcoming.filter(
                 ({ taskId: id }) => id == taskId
