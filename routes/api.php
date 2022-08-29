@@ -42,6 +42,15 @@ Route::post('/upcoming', function(Request $request){
     ]);
 });
 
+//Edit New task upcoming
+Route::post('/upcoming', function(Request $request){
+    return Upcoming::edit([
+        'title'=> $request->title,
+
+    ]);
+});
+
+
 // Delete upcoming task
 Route::delete('/upcoming/{taskId}', function($taskId){
     DB::table('upcomings')->where('taskId', $taskId)->delete();

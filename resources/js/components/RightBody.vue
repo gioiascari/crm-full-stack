@@ -38,10 +38,6 @@
                         </div>
                         <!-- Right task box -->
                         <div class="right">
-                            <button class="mr-3">
-                                <i class="material-icons">edit</i>
-                            </button>
-
                             <button @click="deleteTask(task.taskId)">
                                 <i class="material-icons">delete</i>
                             </button>
@@ -86,9 +82,6 @@
                         </div>
                         <!-- Right task box -->
                         <div class="right">
-                            <button class="mr-3">
-                                <i class="material-icons">edit</i>
-                            </button>
                             <button
                                 @click="deleteUpcoming(upcomingTask.taskId)"
                             >
